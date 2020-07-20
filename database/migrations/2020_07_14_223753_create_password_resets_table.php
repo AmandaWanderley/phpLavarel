@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoomsTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
-          $table->increments('id')->unsigned()->unique();;
-          $table->string('name');
-          $table->string('floor');
-          $table->string('description');
-          $table->timestamps();
-
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -30,6 +26,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('password_resets');
     }
 }
